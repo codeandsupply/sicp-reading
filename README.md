@@ -38,11 +38,22 @@ If you'd like to have comments on a set of exercises or modifications,
 feel free to make a pull request to your directory. If you'd simply
 like to push up some answers, ask for commit access.
 
+Feel free to fork and branch locally however you like. This main
+repository will only maintain a `master` branch though.
 
 Resources
 ---------
 
-* SICP Website
-* Video Lectures
-* Dr Racket
-* Online Solutions
+* [SICP Website](https://mitpress.mit.edu/sicp/)
+  * [HTML Table of Contents](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-4.html#%_toc_start)
+  * [Full Text PDF](http://web.mit.edu/alexmv/6.037/sicp.pdf)
+* [Video Lectures](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/)
+* [Online Solutions](http://community.schemewiki.org/?SICP-Solutions)
+* [Dr Racket](http://racket-lang.org/)
+  * [SICP Language Pack](http://www.neilvandyke.org/racket-sicp/)
+* [Emacs](https://www.gnu.org/software/emacs/)
+  * [Geiser](http://www.nongnu.org/geiser/)
+    * [Using Racket Language Packs with Geiser](http://stackoverflow.com/questions/21008623/setting-language-with-lang-in-the-repl)
+  * [Quack](http://www.neilvandyke.org/quack/)
+  * [Paredit](http://emacswiki.org/emacs/ParEdit)
+    * [Animated Guide to Paredit](http://danmidwood.com/content/2014/11/21/animated-paredit.html)
