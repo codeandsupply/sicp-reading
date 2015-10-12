@@ -1,0 +1,17 @@
+* Chapter 1
+** Section 1-1
+
+Exercize 1.3 isn't hard in the simple case, but I wonder if there's a
+cleaner solution. Also, my solution doesn't gracefully handle equal
+arguments.
+
+
+Exercise 1.5 would be nice to talk through.
+
+Exercise 1.6 could use some discussion. I think the answer has to do
+with how things are evaluated, but I'm not sure.
+
+Exercise 1.7 I have a working implementation, that works well for
+small numbers, and actually returns for small numbers, but doesn't
+work great for large numbers. This clearly has something to do with my
+good-enough-change? function, but I'm not sure what.
