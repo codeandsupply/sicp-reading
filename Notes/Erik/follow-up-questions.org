@@ -1,0 +1,5 @@
+* Chapter 1
+** Section 1.2
+
+Counting Change. Did anyone try to re-work this function to be
+linearly recursive? Or to use memoization?
