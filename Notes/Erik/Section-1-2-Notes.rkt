@@ -78,3 +78,16 @@
         ((= kinds-of-coins 3) 10)
         ((= kinds-of-coins 4) 25)
         ((= kinds-of-coins 5) 50)))
+
+
+;; Orders of Growth
+
+;; We can described resources used for a problem size `n` as R(n). We
+;; describe the order of growth as R(n) = \theta(f(n)) if there are
+;; positive constants k_1 and k_2 such that:
+;;
+;;    k_1 * f(n) <= R(n) <= k_2 * f(n)
+;;
+;; for sufficently large n.
+
+
