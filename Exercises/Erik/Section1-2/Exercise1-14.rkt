@@ -23,7 +23,15 @@
         ((= kinds-of-coins 5) 50)))
 
 
-;; See Photo1-14.jpg
+;; See Photo1-14.jpg for the tree.
+
+;; The order of growth for space is \theta(a^n)
+;;    Because you're doing tree recursion, there will be exponential growth
+;;    at a factor of some constant a
+
+;; The order of growth for steps is \theta(n)
+;;   This is because you only require space to hold a stack as large
+;;   as the maximum depth of the tree
 
 
   
