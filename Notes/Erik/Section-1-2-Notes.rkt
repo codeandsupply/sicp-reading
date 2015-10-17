@@ -117,3 +117,15 @@
 (define (even? n)
   (= (remainder n 2) 0))
 
+
+;; Greatest Common Divisors
+
+; GCD(a, b) = GCD(b, r)
+; where r is the remainder of a/b
+
+; Iterative process, O(log(n)) time, O(1) space
+(define (gcd a b)
+  (if (= b 0)
+      a
+      (gcd b (remainder a b))))
+
