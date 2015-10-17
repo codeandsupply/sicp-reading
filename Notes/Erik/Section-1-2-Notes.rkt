@@ -129,3 +129,67 @@
       a
       (gcd b (remainder a b))))
 
+
+;; Testing for Primality
+
+; A number is prime if it is its own smallest divisor
+
+(define (smallest-divisor n)
+  (find-divisor n 2))
+(define (find-divisor n test-divisor)
+  (cond ((> (square test-divisor) n) n)
+        ((divides? test-divisor n) test-divisor)
+        (else (find-divisor n (+ test-divisor 1)))))
+(define (divides? a b)
+  (= (remainder b a) 0))
+
+;; This has run time O(sqrt(n)). This is because we only test divisors
+;; up to the the sqrt(n)
+(define (prime? n)
+  (= (smallest-divisor n) n))
+
+
+;; Fermat’s Little Theorem: If n is a prime number and a is any
+;; positive integer less than n, then a raised to the nth power is
+;; congruent to a modulo n.
+
+;; Two numbers are said to be congruent modulo n if they both have the
+;; same remainder when divided by n. The remainder of a number a when
+;; divided by n is also referred to as the remainder of a modulo n, or
+;; simply as a modulo n.
+
+
+;; Compute the exponential of a number, mod another number
+(define (expmod base exp m)
+  (cond ((= exp 0) 1)
+        ((even? exp)
+         (remainder (square (expmod base (/ exp 2) m))
+                    m))
+        (else
+         (remainder (* base (expmod base (- exp 1) m))
+                    m))))
+
+(define (fermat-test n)
+  (define (try-it a)
+    (= (expmod a n n) a))
+  (try-it (+ 1 (random (- n 1)))))
+
+(define (fast-prime? n times)
+  (cond ((= times 0) true)
+        ((fermat-test n) (fast-prime? n (- times 1)))
+        (else false)))
+
+; (fast-prime? 393342743 20) ; #t
+
+; The numbers that fool this tests are called Carmichael numbers
+; (prime? 2465) ; #f
+; (fast-prime? 2465 20) ; #t
+; They're very rare at large numbers
+
+
+;; Probababalistic Methods
+
+; The existence of tests for which one can prove that the chance of
+; error becomes arbitrarily small has sparked interest in algorithms
+; of this type, which have come to be known as probabilistic
+; algorithms.
