@@ -91,3 +91,29 @@
 ;; for sufficently large n.
 
 
+;; Exponentiation
+
+; compute b^n
+
+;; O(n) time, O(n) space
+(define (myexpt b n)
+  (if (= n 0)
+      1
+      (* b (expt b (- n 1)))))
+
+;; O(n) time, O(1) space
+(define (myexpt2 b n)
+  (myexpt2-iter b n 1))
+(define (myexpt2-iter b count product)
+  (if (= count 0)
+      product
+      (myexpt2-iter b (- count 1) (* product b))))
+
+;; O(log(n)) time, O(log(n)) space
+(define (fast-expt b n)
+  (cond ((= n 0) 1)
+        ((even? n) (square (fast-expt b (/ n 2))))
+        (else (* b (fast-expt b (- n 1))))))
+(define (even? n)
+  (= (remainder n 2) 0))
+
