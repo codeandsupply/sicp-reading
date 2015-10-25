@@ -25,3 +25,11 @@ steps back? Is there a way to generalize this for n steps of history?
 Exercise 1.12 I'm not sure what this is even asking for.
 
 Exercise 1.13 I'm skiping this proof.
+
+** Section 1-3
+
+I remember we spoke about 1.32, 1.33 and 1.42 - 1.44. Probably more
+but that's what comes to mind
+
+You should see if you can get 1.46. I didn't figure it out. Jackie had
+to look up the answer. And I don't think anyone else got it.
