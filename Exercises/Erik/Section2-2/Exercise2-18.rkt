@@ -12,3 +12,6 @@
       (cons (reverse (cdr x)) (car x))))
 
 (reverse (list 1 4 9 16 25))
+
+;; - Could do this better with append
+;; - Maybe if we did this iteratively, it would work how I expect.

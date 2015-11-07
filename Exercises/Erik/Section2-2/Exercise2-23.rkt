@@ -30,3 +30,6 @@
               (for-each func (cdr xs)))))
 
 (define blah (for-each (lambda (x) (display x) (newline)) (list 57 321 88)))
+
+;; - This can also be done with a let block
+;; - Or a `begin` block
