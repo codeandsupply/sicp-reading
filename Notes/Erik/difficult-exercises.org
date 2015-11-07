@@ -47,3 +47,6 @@ can we make it iterative?
 Exercise 2.24 - We should do this one the whiteboard
 
 Exercise 2.26 - Can we talk about why this is interesting?
+
+Exercise 2.28 - This may relate to why 2.26 is interesting. I'd like
+to see other people's solutions. Did anyone do this without using append?
