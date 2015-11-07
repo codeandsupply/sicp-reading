@@ -43,3 +43,5 @@ above. Maybe talk about it?
 
 Exercise 2.23 - I think my second solution still uses linear space,
 can we make it iterative?
+
+Exercise 2.24 - We should do this one the whiteboard
