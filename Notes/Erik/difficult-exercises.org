@@ -45,3 +45,5 @@ Exercise 2.23 - I think my second solution still uses linear space,
 can we make it iterative?
 
 Exercise 2.24 - We should do this one the whiteboard
+
+Exercise 2.26 - Can we talk about why this is interesting?
