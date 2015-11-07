@@ -38,3 +38,8 @@ to look up the answer. And I don't think anyone else got it.
 Exercise 2.18 - This doesn't produce a list like I'm used to. Is there
 a better way to do this?
 
+Exercise 2.22 - I didn't do this, but I think it relates to my problem
+above. Maybe talk about it?
+
+Exercise 2.23 - I think my second solution still uses linear space,
+can we make it iterative?
