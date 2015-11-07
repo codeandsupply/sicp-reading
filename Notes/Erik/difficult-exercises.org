@@ -33,3 +33,8 @@ but that's what comes to mind
 
 You should see if you can get 1.46. I didn't figure it out. Jackie had
 to look up the answer. And I don't think anyone else got it.
+* Chapter 2
+** Section 2.2
+Exercise 2.18 - This doesn't produce a list like I'm used to. Is there
+a better way to do this?
+
