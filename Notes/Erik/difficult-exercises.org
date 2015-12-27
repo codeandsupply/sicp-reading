@@ -50,3 +50,7 @@ Exercise 2.26 - Can we talk about why this is interesting?
 
 Exercise 2.28 - This may relate to why 2.26 is interesting. I'd like
 to see other people's solutions. Did anyone do this without using append?
+** Section 2.3
+
+Exercise 2.55
+  - I don't understand what this is doing, I just put a guess in my answer.
