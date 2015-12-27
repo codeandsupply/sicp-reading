@@ -5,3 +5,11 @@
 linearly recursive? Or to use memoization?
 
 - I don't understand footnote 46
+* Chapter 2
+** Section 2.2
+
+Mapping over trees, my implementation scale-tree2 is really
+interesting. It has some sort of co-recursion going on, where
+scale-tree2 calls map, which calls scale-tree2. It's interesting that
+this moves the `cons` calls all the way up into map.
+

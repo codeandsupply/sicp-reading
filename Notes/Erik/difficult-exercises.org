@@ -33,3 +33,20 @@ but that's what comes to mind
 
 You should see if you can get 1.46. I didn't figure it out. Jackie had
 to look up the answer. And I don't think anyone else got it.
+* Chapter 2
+** Section 2.2
+Exercise 2.18 - This doesn't produce a list like I'm used to. Is there
+a better way to do this?
+
+Exercise 2.22 - I didn't do this, but I think it relates to my problem
+above. Maybe talk about it?
+
+Exercise 2.23 - I think my second solution still uses linear space,
+can we make it iterative?
+
+Exercise 2.24 - We should do this one the whiteboard
+
+Exercise 2.26 - Can we talk about why this is interesting?
+
+Exercise 2.28 - This may relate to why 2.26 is interesting. I'd like
+to see other people's solutions. Did anyone do this without using append?
