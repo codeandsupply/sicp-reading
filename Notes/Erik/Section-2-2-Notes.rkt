@@ -120,3 +120,141 @@
 
 
 ;; 2.2.3 Sequences as Conventional Interfaces
+
+;; Consider how these two procedures look different on the surface:
+(define (square x) (* x x))
+(define (sum-odd-squares tree)
+  (cond ((null? tree) 0)
+        ((not (pair? tree))
+         (if (odd? tree) (square tree) 0))
+        (else (+ (sum-odd-squares (car tree))
+                 (sum-odd-squares (cdr tree))))))
+
+(define (fib n) (if (< n 2) n (+ (fib (- n 1)) (fib (- n 2)))))
+(define (even-fibs n)
+  (define (next k)
+    (if (> k n)
+        nil
+        (let ((f (fib k)))
+          (if (even? f)
+              (cons f (next (+ k 1)))
+              (next (+ k 1))))))
+  (next 0))
+
+;; Yet, both of these procedures follow some similar steps:
+;;  - enumeration
+;;  - filtering
+;;  - accumulation
+
+;; However, they fail to go through these steps in a clear order.
+
+;; We can separate our code out into these steps by implementing some
+;; functions
+
+;; We know map
+(map square (list 1 2 3 4 5))
+
+;; Filter
+(define (filter predicate sequence)
+  (cond ((null? sequence) nil)
+        ((predicate (car sequence))
+         (cons (car sequence)
+               (filter predicate (cdr sequence))))
+        (else (filter predicate (cdr sequence)))))
+
+(filter odd? (list 1 2 3 4 5 6 7 8))
+
+;; Accumulate
+(define (accumulate op initial sequence)
+  (if (null? sequence)
+      initial
+      (op (car sequence)
+          (accumulate op initial (cdr sequence)))))
+
+(accumulate + 0 (list 1 2 3 4 5))
+(accumulate * 1 (list 1 2 3 4 5))
+
+;; Then to processes data using these functions we just need
+;; enumerators
+
+(define (enumerate-interval low high)
+  (if (> low high)
+      nil
+      (cons low (enumerate-interval (+ low 1) high))))
+
+(define (enumerate-tree tree)
+  (cond ((null? tree) nil)
+        ((not (pair? tree)) (list tree))
+        (else (append (enumerate-tree (car tree))
+                      (enumerate-tree (cdr tree))))))
+
+;; Now we can redefine these function
+(define (sum-odd-squares2 tree)
+  (accumulate +
+              0
+              (map square
+                   (filter odd?
+                           (enumerate-tree tree)))))
+
+(define (list-fib-squares n)
+  (accumulate cons
+              nil
+              (map square
+                   (map fib
+                        (enumerate-interval 0 n)))))
+
+
+;; Nested Mappings
+
+;; Find all triples (i, j, i+j) such that 1 <= j < i <= n and i+j is prime
+
+;;;;;;;;;
+;; Setup
+
+;; Testing for Primality
+
+; A number is prime if it is its own smallest divisor
+
+(define (smallest-divisor n)
+  (find-divisor n 2))
+(define (find-divisor n test-divisor)
+  (cond ((> (square test-divisor) n) n)
+        ((divides? test-divisor n) test-divisor)
+        (else (find-divisor n (+ test-divisor 1)))))
+(define (divides? a b)
+  (= (remainder b a) 0))
+
+;; This has run time O(sqrt(n)). This is because we only test divisors
+;; up to the the sqrt(n)
+(define (prime? n)
+  (= (smallest-divisor n) n))
+
+;; End setup
+;;;;;;;;;;;;;
+
+;; (accumulate append
+;;             nil
+;;             (map (lambda (i)
+;;                    (map (lambda (j) (list i j))
+;;                         (enumerate-interval 1 (- i 1)))
+;;                    (enumerate-interval 1 n))))
+
+;; Maping and accumulating over sub lists is common enough to have a name:
+(define (flatmap proc seq)
+  (accumulate append nil (map proc seq)))
+
+(define (prime-sum? pair)
+  (prime? (+ (car pair) (cadr pair))))
+
+(define (make-pair-sum pair)
+  (list (car pair) (cadr pair (+ (car pair) (cadr pair)))))
+
+(define (prime-sum-pairs n)
+  (map make-pair-sum
+       (filter prime-sum?
+               (flatmap
+                (lambda (i)
+                  (map (lambda (j) (list i j))
+                       (enumerate-interval 1 (- i 1))))
+                (enumerate-interval 1 n)))))
+
