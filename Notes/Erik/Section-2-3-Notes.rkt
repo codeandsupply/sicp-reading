@@ -148,3 +148,164 @@
 (deriv-simp '(+ (+ 0 (* 3 x)) (* x x)) 'x)
 (deriv-simp '(* x y) 'x)
 (deriv-simp '(+ x (* 3 x)) 'x)
+
+
+;; Representing Sets
+
+;; Wishfull Thinking:
+;;
+;; union-set
+;; intersection-set
+;; element-of-set?
+;; adjoin-set
+
+;; Sets as unordered lists:
+
+(define (element-of-set-uol? x set)
+  (cond ((null? set) false)
+        ((equal? x (car set)) true)
+        (else (element-of-set-uol? x (cdr set)))))
+
+(define (adjoin-set-uol x set)
+  (if (element-of-set-uol? x set)
+      set
+      (cons x set)))
+
+(define (intersection-set-uol set1 set2)
+  (cond ((or (null? set1) (null? set2)) '())
+        ((element-of-set-uol? (car set1) set2)
+         (cons (car set1)
+               (intersection-set-uol (cdr set1) set2)))
+        (else (intersection-set-uol (cdr set1) set2))))
+
+(define (union-set-uol set1 set2)
+  (if (null? set1)
+      set2
+      (union-set-uol
+       (cdr set1)
+       (adjoin-set-uol (car set1) set2))))
+
+
+;; Sets as ordered lists
+
+;; This will give us a performance improvement. We'll deal strictly
+;; with numbers, but we could do this based on lexographically
+;; comparing symbols, or assigning every object a unique number.
+
+(define (element-of-set-ol? x set)
+  (cond ((null? set) false)
+        ((= x (car set)) true)
+        ((< x (car set)) false)
+        (else (element-of-set-ol? x (cdr set)))))
+
+(define (intersection-set-ol set1 set2)
+  (if (or (null? set1) (null? set2))
+      '()
+      (let ((x1 (car set1)) (x2 (car set2)))
+        (cond ((= x1 x2)
+               (cons x1 (intersection-set-ol (cdr set1) (cdr set2))))
+              ((< x1 x2) (intersection-set-ol (cdr set1) set2))
+              ((> x1 x2) (intersection-set-ol set1 (cdr set2)))))))
+
+
+;; Sets as Binary Trees
+
+;; We can get even more efficiency gains.
+
+(define entry car)
+(define left-branch cadr)
+(define right-branch caddr)
+(define (make-tree entry left right)
+  (list entry left right))
+
+(define (element-of-set-tree? x set)
+  (cond ((null? set) false)
+        ((= x (entry set)) true)
+        ((< x (entry set))
+         (element-of-set-tree? x (left-branch set)))
+        ((> x (entry set))
+         (element-of-set-tree? x (right-branch set)))))
+
+(define (adjoin-set-tree x set)
+  (cond ((null? set) (make-tree x '() '()))
+        ((= x (entry set)) set)
+        ((< x (entry set))
+         (make-tree (entry set)
+                    (adjoin-set-tree x (left-branch set))
+                    (right-branch set)))
+        ((> x (entry set))
+         (make-tree (entry set)
+                    (left-branch set)
+                    (adjoin-set-tree x (right-branch set))))))
+
+
+;; Example Huffman Trees
+
+;; Procedures for encoding information in a huffman tree and decoding
+;; a string of bits into symbols.
+
+;; Leaves in a huffman tree are symbols and weights
+(define (make-leaf symbol weight)
+  (list 'leaf symbol weight))
+(define (leaf? object)
+  (eq? (car object) 'leaf))
+(define symbol-leaf cadr)
+(define weight-leaf caddr)
+
+
+(define left-branch car)
+(define right-branch cadr)
+(define (symbols tree)
+  (if (leaf? tree)
+      (list (symbol-leaf tree))
+      (caddr tree)))
+(define (weight tree)
+  (if (leaf? tree)
+      (list (weight-leaf tree))
+      (cadddr tree)))
+
+(define (make-code-tree left right)
+  (list
+   left
+   right
+   (append (symbols left) (symbols right))
+   (+ (weight left) (weight right))))
+
+
+;; Decoding a bit string means following left and right down the tree
+;; with each bit (0 -> left, 1 -> right) until you hit a leaf.
+
+;; This embodies the idea of a "prefix code", since only leaves have values.
+
+(define (choose-branch bit branch)
+  (cond ((= 0 bit) (left-branch branch))
+        ((= 1 bit) (right-branch branch))
+        (else (error "bad bit -- CHOOSE-BRANCH" bit))))
+
+(define (decode bits tree)
+  (define (decode-1 bits current-branch)
+    (if (null? bits)
+        '()
+        (let ((next-branch (choose-branch (car bits) current-branch)))
+          (if (leaf? next-branch)
+              (cons (symbol-leaf next-branch)
+                    (decode-1 (cdr bits) tree))
+              (decode-1 (cdr bits) next-branch)))))
+  (decode-1 bits tree))
+
+(define (adjoin-set leaf set)
+  ;; Add a leaf (a pair of symbol/weight) to a set of leaves
+  (cond ((null? set) (list leaf))
+        ((< (weight leaf) (weight (car set))) (cons leaf set))
+        (else (cons (car set)
+                    (adjoin-set leaf (cdr set))))))
+
+(define (make-leaf-set pairs)
+  ;; Make a leaf-set from a sequence of symbol/frequency pairs in the form
+  ;; ((A 1) (B 2) (C 3))
+  (if (null? pairs)
+      '()
+      (let ((pair (car pairs)))
+        (adjoin-set (make-leaf (car pairs)     ; symbol
+                               (cadr pairs))   ; frequency
+                    (make-leaf-set (cdr pairs))))))
