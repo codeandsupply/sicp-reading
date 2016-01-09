@@ -58,3 +58,7 @@ Exercise 2.55
 Exercise 2.57 - How do you do variadic functions?
 
 Exercise 2.58 - This just looks tedious. Maybe come back to it
+
+Exercise 2.60 - Can we talk about the discussion section?
+Specifically, I'm interested in the timing of union-set (what is the
+timing of append?). I'm also curious about situations where this is better.
