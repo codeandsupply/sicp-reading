@@ -253,8 +253,8 @@
 (define weight-leaf caddr)
 
 
-(define left-branch car)
-(define right-branch cadr)
+(define huff-left-branch car)
+(define huff-right-branch cadr)
 (define (symbols tree)
   (if (leaf? tree)
       (list (symbol-leaf tree))
@@ -278,8 +278,8 @@
 ;; This embodies the idea of a "prefix code", since only leaves have values.
 
 (define (choose-branch bit branch)
-  (cond ((= 0 bit) (left-branch branch))
-        ((= 1 bit) (right-branch branch))
+  (cond ((= 0 bit) (huff-left-branch branch))
+        ((= 1 bit) (huff-right-branch branch))
         (else (error "bad bit -- CHOOSE-BRANCH" bit))))
 
 (define (decode bits tree)
