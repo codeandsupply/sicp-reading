@@ -62,3 +62,9 @@ Exercise 2.58 - This just looks tedious. Maybe come back to it
 Exercise 2.60 - Can we talk about the discussion section?
 Specifically, I'm interested in the timing of union-set (what is the
 timing of append?). I'm also curious about situations where this is better.
+
+Exercise 2.61 - curious to see others implementations. List insertion. Also,
+
+Exercise 2.63 - Lets talk about orders of growth here. Append?
+
+Exercise 2.64 - let* would be useful here.
