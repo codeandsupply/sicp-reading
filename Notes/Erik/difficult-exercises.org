@@ -54,3 +54,7 @@ to see other people's solutions. Did anyone do this without using append?
 
 Exercise 2.55
   - I don't understand what this is doing, I just put a guess in my answer.
+
+Exercise 2.57 - How do you do variadic functions?
+
+Exercise 2.58 - This just looks tedious. Maybe come back to it
