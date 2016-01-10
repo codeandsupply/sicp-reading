@@ -19,3 +19,10 @@ In order to add simplification to `deriv` we change the constructors
 so that they automatically simplify expressions. I find this approach
 interesting, and I'm wondering what other think of the pros and cons
 of this choice.
+
+** Section 2.4
+
+- Can we talk about multiple dispatch?
+  - Language level supported: Julia
+- Can we talk about message passing?
+  - OO? Other modern languages?

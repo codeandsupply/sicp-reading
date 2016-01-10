@@ -185,3 +185,31 @@
           (error
            "No method for these types -- APPLY-GENERIC "
            (list op type-tags))))))
+
+
+;; Message Passing
+;;;;;;;;;;;;;;;;;;
+
+;; Before writing apply-generic, we had intelligent operations that
+;; dispatched on type. What if we took the opposite approach and had
+;; intelligent data that dispatched on operation?
+
+(define (make-from-real-imag x y)
+  (define (dispatch op)
+    (cond ((eq? op 'real-part) x)
+          ((eq? op 'imag-part) y)
+          ((eq? op 'magnitude)
+           (sqrt (+ (square x) (square y))))
+          ((eq? op 'angle) (atan y x))
+          (else (error "Unknown op -- MAKE-FROM-REAL-IMAG" op))))
+  dispatch)
+
+;; Since our data objects are procedures, we apply an operation to
+;; them by calling the procedure with the operation as an argument
+(define (message-pass-apply-generic op arg) (arg op))
+
+;; This style of programming is called message passing.
+
+;; Message passing gets its name from the fact that a data object is
+;; an entity that recieves the request for an operation as a "message"
+;; containing the name of the operation to perform.
