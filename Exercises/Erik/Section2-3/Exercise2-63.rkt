@@ -54,3 +54,7 @@
 ;;;;;;;;;;;;;;
 
 ;; I think they have the same orders of growth.
+;;    *NO*
+
+;; 1 is log-linear because of append
+;; 2 is linear

@@ -68,3 +68,8 @@ Exercise 2.61 - curious to see others implementations. List insertion. Also,
 Exercise 2.63 - Lets talk about orders of growth here. Append?
 
 Exercise 2.64 - let* would be useful here.
+              - I think I understand how this works, would be fun to discuss
+
+** Section 2.4
+
+Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?

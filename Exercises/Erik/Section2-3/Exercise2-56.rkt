@@ -60,7 +60,7 @@
 (define exponent caddr)
 (define (make-exponentiation b exp)
   (cond ((=number? exp 1) b)
-        ((=number? exp 0) 0)
+        ((=number? exp 0) 1)
         (else (list '** b exp))))
 
 
