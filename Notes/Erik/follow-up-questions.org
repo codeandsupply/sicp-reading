@@ -13,3 +13,16 @@ interesting. It has some sort of co-recursion going on, where
 scale-tree2 calls map, which calls scale-tree2. It's interesting that
 this moves the `cons` calls all the way up into map.
 
+** Section 2.3
+
+In order to add simplification to `deriv` we change the constructors
+so that they automatically simplify expressions. I find this approach
+interesting, and I'm wondering what other think of the pros and cons
+of this choice.
+
+** Section 2.4
+
+- Can we talk about multiple dispatch?
+  - Language level supported: Julia
+- Can we talk about message passing?
+  - OO? Other modern languages?

@@ -50,3 +50,26 @@ Exercise 2.26 - Can we talk about why this is interesting?
 
 Exercise 2.28 - This may relate to why 2.26 is interesting. I'd like
 to see other people's solutions. Did anyone do this without using append?
+** Section 2.3
+
+Exercise 2.55
+  - I don't understand what this is doing, I just put a guess in my answer.
+
+Exercise 2.57 - How do you do variadic functions?
+
+Exercise 2.58 - This just looks tedious. Maybe come back to it
+
+Exercise 2.60 - Can we talk about the discussion section?
+Specifically, I'm interested in the timing of union-set (what is the
+timing of append?). I'm also curious about situations where this is better.
+
+Exercise 2.61 - curious to see others implementations. List insertion. Also,
+
+Exercise 2.63 - Lets talk about orders of growth here. Append?
+
+Exercise 2.64 - let* would be useful here.
+              - I think I understand how this works, would be fun to discuss
+
+** Section 2.4
+
+Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
