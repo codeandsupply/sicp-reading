@@ -20,3 +20,9 @@
 
 ;; Show the environment structures created by evaluating (factorial 6)
 ;; using each version of the factorial procedure.
+
+
+;; Answer
+;;;;;;;;;
+
+;; See attached picture.
