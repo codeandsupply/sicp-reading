@@ -73,3 +73,7 @@ Exercise 2.64 - let* would be useful here.
 ** Section 2.4
 
 Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
+* Chapter 3
+** Section 2
+  - 3.9
+    - How does tail call elimination play into this?
