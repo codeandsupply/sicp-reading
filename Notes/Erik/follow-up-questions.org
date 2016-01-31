@@ -26,3 +26,43 @@ of this choice.
   - Language level supported: Julia
 - Can we talk about message passing?
   - OO? Other modern languages?
+* Chapter 3
+** Section 2
+- In figure 3.5, why don't the lower function calls point upwards
+  towards E1, rather than directly to the global environment?
+  - "Notice that each frame created by square points to the global
+    environment, since this is the environment indicated by the square
+    procedure object."
+  - Is this a thing about lexical vs dynamic scoping?
+
+Does that have something to do with why the first block works and the
+second doesn't?
+
+#+begin_src schem
+(define (square x) (* x x))
+
+(define (somefunc)
+  (define y 5)
+  (square y))
+
+
+(define (square2) (* y y))
+
+(define (somefunc2)
+  (define y 5)
+  (square2))
+#+end_src
+
+- Can we walk through the process in figure 3.7?
+
+- There's a lot of talk about when frames get created, but little
+  about when they get destroyed. When does that happen?
+  - "The frame that binds amount (in which we executed the code that
+    changed balance) is no longer relevant, since the procedure call
+    that constructed it has terminated, and there are no pointers to
+    that frame from other parts of the environment."
+
+- How is figure 3.11 different from figure 3.5?
+  - In that, `square-iter` is evaluated in a frame other than the global env.
+  - because the sqrt-iter and good-enough? procedures both have E1 as
+    their environment part.
