@@ -32,3 +32,10 @@
 ;; Show that the two versions of make-withdraw create objects with the
 ;; same behavior. How do the environment structures differ for the two
 ;; versions?
+
+
+;; Answer
+;;;;;;;;;
+
+;; Jackie did a great job of drawing this up in the group. It's
+;; included here.
