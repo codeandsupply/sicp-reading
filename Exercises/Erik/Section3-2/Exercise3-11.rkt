@@ -38,3 +38,17 @@
 
 ;; How are the local states for the two accounts kept distinct? Which
 ;; parts of the environment structure are shared between acc and acc2?
+
+
+;; Answer
+;;;;;;;;;
+
+;; The local state for `acc` is kept in a stack frame, that is created
+;; when `make-account` is called.
+
+;; The local states are kept distinct. When the definitions for them
+;; are created, they consist of a pair (body . environment). The body
+;; portion may both point to the same dispatch function, but the
+;; environment will only point to the proper enclosing environment.
+
+;; David has a good drawing for this, which is included here.
