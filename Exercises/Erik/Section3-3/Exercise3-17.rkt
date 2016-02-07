@@ -7,7 +7,10 @@
 (require scheme/mpair)
 
 (define (count-pairs x)
-  (define distinct-pairs '())
+  ;; Note: the following define could be a let. See Section 1.3
+  ;; footnote 54, which we will return to in Chapter 4.1.6, for why
+  ;; defining local variables might be a bad idea.
+  (define distinct-pairs '())   
   (define (new? pair)
     (define (in-list? pair l)
       (cond ((null? l) #f)
@@ -17,7 +20,6 @@
   (define (count-distinct-pairs x)
     (if (mpair? x)
         (cond ((new? x)
-               (writeln x)
                (set! distinct-pairs (mcons x distinct-pairs))
                (+ 1
                   (count-distinct-pairs (mcar x))
