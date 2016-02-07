@@ -80,6 +80,8 @@ Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
 ** Section 3
 - Exercise 3.16
   - This was just fun
+- Exercise 3.17
+  - Did others do this the same?
 - Exercise 3.14
   - Am I right that this reverses the list in place?
 - Exercise 3.22
