@@ -66,3 +66,13 @@ second doesn't?
   - In that, `square-iter` is evaluated in a frame other than the global env.
   - because the sqrt-iter and good-enough? procedures both have E1 as
     their environment part.
+** Section 3
+
+"The mutators set-car! and set-cdr! enable us to use pairs to construct
+data structures that cannot be built with cons, car, and cdr alone."
+  - Is this true??
+
+"we build the table as a headed list. A headed list has a special
+backbone pair at the beginning, which holds a dummy ``record'' -- in
+this case the arbitrarily chosen symbol *table*."
+  - Why do we do it this way? Just to have a sentinal?
