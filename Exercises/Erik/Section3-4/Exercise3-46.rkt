@@ -3,3 +3,4 @@
 ;; the operation atomic. Draw a timing diagram like the one in figure
 ;; 3.29 to demonstrate how the mutex implementation can fail by
 ;; allowing two processes to acquire the mutex at the same time.
+
