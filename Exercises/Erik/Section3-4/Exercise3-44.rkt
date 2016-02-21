@@ -16,3 +16,10 @@
 ;; is the essential difference between the transfer problem and the
 ;; exchange problem? (You should assume that the balance in
 ;; from-account is at least amount.)
+
+;; The only potential problem is if the withdrawl fails due to
+;; insufficient funds.
+
+;; The essential difference between this and the exchange, is that
+;; neither the withdrawl of the deposit depends on reading from the
+;; existing balance of either account.
