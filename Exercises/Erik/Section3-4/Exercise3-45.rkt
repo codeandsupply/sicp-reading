@@ -33,3 +33,5 @@
 
 ;; Explain what is wrong with Louis's reasoning. In particular,
 ;; consider what happens when serialized-exchange is called.
+
+;; Deadlock

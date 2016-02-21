@@ -91,3 +91,4 @@ Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
 ** Section 4
 - Exercise 42: Does serialization work on the functions this way?
 - Exercise 44: Are additional protections needed?
+- Exercise 45: Is it deadlock?
