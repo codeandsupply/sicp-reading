@@ -88,3 +88,5 @@ Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
   - Am I right that this reverses the list in place?
 - Exercise 3.22
   - What is the appropriate return value for the mutators?
+** Section 4
+- Exercise 42: Did I do it right?
