@@ -96,3 +96,5 @@ Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
 - Exercise 3.51
   - I have no idea what's going on here, I would assume it would print
     the intermediate values.
+- Exercise 3.53
+  - I guessed this right, but I don't understand how it works

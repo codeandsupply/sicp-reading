@@ -134,9 +134,17 @@
 
 (define ones (stream-cons 1 ones))
 
-;; (define (add-streams s1 s2)
-;;   (stream-map + s1 s2))
-;;   - requires the generalized stream map
+(define (add-streams s1 s2)
+  (stream-map + s1 s2))
+;;   - requires the generalized stream map:
+(define (stream-map proc . argstreams)
+  (if (stream-empty? (car argstreams))
+      empty-stream
+      (stream-cons
+       (apply proc (map stream-car argstreams))
+       (apply stream-map
+              (cons proc (map stream-cdr argstreams))))))
+
 
 (define fibs
   (cons-stream 0
