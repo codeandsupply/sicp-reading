@@ -98,3 +98,7 @@ Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
     the intermediate values.
 - Exercise 3.53
   - I guessed this right, but I don't understand how it works
+- Exercise 3.55
+  - I don't have a good intuitive reasoning for this
+  - Can we try diagramming it?
+
