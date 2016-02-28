@@ -76,3 +76,13 @@ data structures that cannot be built with cons, car, and cdr alone."
 backbone pair at the beginning, which holds a dummy ``record'' -- in
 this case the arbitrarily chosen symbol *table*."
   - Why do we do it this way? Just to have a sentinal?
+** Section 5
+- Implementing Delay and Force
+  - How does it take <exp> as an argument, without evaluting it?
+
+- Why does stream-enumerate-interval work, and integers-starting-from doesn't?
+  - It's because it's just imitating a stream, and actually evaluates
+    the whole damn thing eagerly
+  - cons-stream has to be a special form
+
+- Can we walk through how sqrt-stream works?
