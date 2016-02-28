@@ -92,3 +92,7 @@ Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
 - Exercise 42: Does serialization work on the functions this way?
 - Exercise 44: Are additional protections needed?
 - Exercise 45: Is it deadlock?
+** Section 5
+- Exercise 3.51
+  - I have no idea what's going on here, I would assume it would print
+    the intermediate values.
