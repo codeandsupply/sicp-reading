@@ -175,3 +175,20 @@
                              guesses)))
   guesses)
 (take 5 (sqrt-stream 2))
+
+
+;; Infinite streams of pairs
+
+(define (interleave s1 s2)
+  (if (stream-null? s1)
+      s2
+      (stream-cons (stream-car s1)
+                   (interleave s2 (stream-cdr s1)))))
+
+(define (pairs s t)
+  (stream-cons
+   (list (stream-car s) (stream-car t))
+   (interleave
+    (stream-map (lambda (x) (list (stream-car s) x))
+                (stream-cdr t))
+    (pairs (stream-cdr s) (stream-cdr t)))))

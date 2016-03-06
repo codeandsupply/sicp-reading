@@ -13,6 +13,8 @@
 (stream-ref x 5)
 (stream-ref x 7)
 
+(take 5 x)
+
 ;; 5
 ;; 5
 

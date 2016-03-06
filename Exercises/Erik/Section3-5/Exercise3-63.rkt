@@ -14,3 +14,12 @@
 ;; differ in efficiency if our implementation of delay used only
 ;; (lambda () <exp>) without using the optimization provided by
 ;; memo-proc (section 3.5.1)?
+
+(define (sqrt-stream x)
+  (define guesses
+    (cons-stream 1.0
+                 (stream-map (lambda (guess)
+                               (sqrt-improve guess x))
+                             guesses)))
+  guesses)
+(display-stream (sqrt-stream 2))
