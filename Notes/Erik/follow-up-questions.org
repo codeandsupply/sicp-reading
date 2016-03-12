@@ -90,3 +90,6 @@ this case the arbitrarily chosen symbol *table*."
 ** Section 1
 - Footnote 6. I'm not getting the consciousness expansion...
 - Where in this code can we see the nested environments?
+- I'm not sure I understand the "flexibility" here
+  - Aren't the checks and evaluators the bulk of the code?
+  - We'd only not have to re-write `eval` and `apply`
