@@ -102,3 +102,5 @@ Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
   - I don't have a good intuitive reasoning for this
   - Can we try diagramming it?
 
+- Exercise 3.70
+  - The incoming streams have to be ordered somehow, right?
