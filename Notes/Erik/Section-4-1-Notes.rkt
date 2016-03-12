@@ -53,7 +53,7 @@
          (make-procedure (lambda-parameters exp)
                          (lambda-body exp)
                          env))
-        ((begin? exp) 
+        ((begin? exp)
          (eval-sequence (begin-actions exp) env))
         ((cond? exp) (eval (cond->if exp) env))
         ((application? exp)
@@ -84,3 +84,31 @@
         (else
          (error
           "Unknown procedure type -- APPLY" procedure))))
+
+
+;; 4.1.2 Representing Expressions
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; The result of the operation is the result of recursively operating
+;; on sub-expressions until we reach some primitive values.
+
+;; - The only self-evaluating items are numbers and strings
+;; - Variables are represented by symbols
+;; - Quotations have the form (quote <text-of-quotation>)
+;; - Assignments have the form (set! <var> <value>)
+;; - Definitions have the form (define <var> <value>)
+;;   - or (define (<var> <parameter1> ... <parametern>)
+;;                <body>)
+;; - Lambda expressions are lists that begin with the symbol lambda
+;; - Begin packages a sequence of expressions into a single expression.
+;; - cond expressions are tagged with `'cond`
+;;   - We transform them into `if` statements though
+;;
+;; - The `tagged-list?` procedure helps us identify tagged types
+;;   - like quote, set!, etc
+;;
+;; - The `sequence->exp` procedure helps us with let/define/cond ->
+;;   begin
+;;
+;; - A procedure application is any compound expression that is not
+;;   one of the above expression types.
