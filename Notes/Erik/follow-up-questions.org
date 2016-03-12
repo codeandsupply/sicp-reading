@@ -86,3 +86,7 @@ this case the arbitrarily chosen symbol *table*."
   - cons-stream has to be a special form
 
 - Can we walk through how sqrt-stream works?
+* Chapter 3
+** Section 1
+- Footnote 6. I'm not getting the consciousness expansion...
+- Where in this code can we see the nested environments?
