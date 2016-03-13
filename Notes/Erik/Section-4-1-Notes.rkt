@@ -112,3 +112,23 @@
 ;;
 ;; - A procedure application is any compound expression that is not
 ;;   one of the above expression types.
+
+
+
+;; 4.1.3 Evaluator Data Structures
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Operations on environments
+;;
+;; - (lookup-variable <var> <env>)
+;; - (extend-environment <variables> <values> <base-env>)
+;; - (define-variable! <var> <value> <env>)
+;; - (set-variable-value! <var> <value> <env>)
+;;
+;; We represent an environment as a list of frames. The enclosing
+;; environment of an environment is the cdr of the list. The empty
+;; environment is simply the empty list.
+
+
+;; 4.1.4 Running the Evaluator as a Program
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

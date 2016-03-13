@@ -86,10 +86,12 @@ this case the arbitrarily chosen symbol *table*."
   - cons-stream has to be a special form
 
 - Can we walk through how sqrt-stream works?
-* Chapter 3
+* Chapter 4
 ** Section 1
 - Footnote 6. I'm not getting the consciousness expansion...
 - Where in this code can we see the nested environments?
 - I'm not sure I understand the "flexibility" here
   - Aren't the checks and evaluators the bulk of the code?
   - We'd only not have to re-write `eval` and `apply`
+- Lets draw environment diagrams of the environment diagrams!
+  - Fun, right???
