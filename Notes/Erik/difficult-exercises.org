@@ -104,3 +104,9 @@ Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
 
 - Exercise 3.70
   - The incoming streams have to be ordered somehow, right?
+* Chapter 4
+** Section 1
+- Exercise 4.6
+  - Does this make sense? Can we walk through it?
+- Exercise 4.14
+  - I want to talk about the relationships of primitives
