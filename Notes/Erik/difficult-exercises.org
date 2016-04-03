@@ -110,3 +110,6 @@ Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
   - Does this make sense? Can we walk through it?
 - Exercise 4.14
   - I want to talk about the relationships of primitives
+** Section 2
+
+- 4.26: when would you ever want `unless` as a higher order procedure?
