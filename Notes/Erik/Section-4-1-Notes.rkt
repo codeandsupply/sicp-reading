@@ -136,3 +136,32 @@
 
 ;; 4.1.5 Data as Programs
 ;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Think of our evaluator as a universal machine
+
+;; Sometimes it can even be usefull to have `eval` within a program,
+;; respective to our environment.
+
+;; 4.1.6 Internal Definitions
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; We should "scan out" internal definitions, by doing a
+;; transformation on lambdas:
+
+;; (lambda <vars>
+;;   (define u <e1>)
+;;   (define v <e2>)
+;;   <e3>)
+
+;; Becomes:
+
+;; (lambda <vars>
+;;   (let ((u '*unassigned*)
+;;         (v '*unassigned*))
+;;     (set! u <e1>)
+;;     (set! v <e2>)
+;;     <e3>))
+
+
+;; 4.1.7 Separating Syntactic Analysis from Execution
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
