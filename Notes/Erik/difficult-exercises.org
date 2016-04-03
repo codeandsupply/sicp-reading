@@ -114,3 +114,4 @@ Exercise 2.76 - Fun to discuss. Especially the last part. Arguements?
 
 - 4.26: when would you ever want `unless` as a higher order procedure?
 - 4.27: Can we step through this evaluation?
+  - 4.29 same deal
