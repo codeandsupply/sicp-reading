@@ -8,6 +8,8 @@
 ;; arguments, while applicative order evaluates the arguments before
 ;; passing them in.
 
+;; Some languages allow for strict evaluation selectively.
+
 ;; 4.2.2 An interpreter with Lazy Evaluation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
