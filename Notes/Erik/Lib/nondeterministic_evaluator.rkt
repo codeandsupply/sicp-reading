@@ -6,6 +6,11 @@
 (define apply-in-underlying-scheme apply)
 
 (define (eval exp env)
+  ((analyze exp) env))
+
+(define (analyze exp))
+
+(define (eval exp env)
   (cond ((self-evaluating? exp) exp)
         ((variable? exp) (lookup-variable-value exp env))
         ((quoted? exp) (text-of-quotation exp))
